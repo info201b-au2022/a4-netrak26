@@ -1,45 +1,63 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+title: "Incarceration Trends and Rates in the United States"
+author: "Netra Krishnan"
+date: '2022-12-08'
 output: html_document
 ---
 
-```{r echo=FALSE, eval=TRUE, message=FALSE}
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
 source("../source/a4-helpers.R")
-source("../source/analysis.R")
+source("C:/Users/netra/Documents/info201/assignments/a4-netrak26/source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
+This report draws on data from a dataset that includes incarceration trends in the United States. The purpose of this report is to reveal disparities in the prison system within the United States, including comparisons in jail and prison populations within each state. Plots and graphs are included to display these trends and disparities.
 
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
 
 ## Introduction 
-[TODO]
+The United States’ institutionalized racism expands throughout many aspects of the nation’s systems, including its prison systems. This data set includes data of incarceration rates among people of different races, to show the disparities among races in the United States relating to the prison system. Certain races are targeted more than others, especially white people, and this leads to a higher rate of people of color being incarcerated. This can be due to unjust arrests, trials, and more. The direct and indirect stakeholders that are impacted by research into this dataset are people of color who are impacted by unjust incarceration systems in the United States. These trends, when analyzed, have the potential to reveal disparities that others don’t believe in, to help enact change and benefit those in need. Some questions that are answered in this report are how black jail populations compare in different states, as well as in comparison to white jail populations.
 
 ## Data Summary 
-[TODO]
+Throughout history in the United States, systemic racism has been a battle that Black people have been facing. A massive part of this is a high amount of inequality they face in the American prison system. Black people are constantly targeted by police and police systems, and given unjust trials and sentences to jail. To help us understand patterns of inequality for Black individuals in the prison system, we can ask where the total Black jail population is highest in the United States. Through the incarceration trends data, it was found that `r state_highest_black_jail_pop` has had the highest total number of black people in jail from 1970 to 2018. To compare, another question can be asked to find where the total Black jail population is lowest in the United States, which has been found to be the state `r state_lowest_black_jail_pop`. Finally, another important question to ask regarding inequalities that Black people have faced within the prison system for years is to see how the total Black jail population has changed over time. It was found that a difference of `r total_change` was found when calculating the difference in jail populations between 1988 and 2018, meaning that the total Black jail population in the United states has increased by that amount during this time span. These questions have helped in gaining a better understanding of how Black jail populations have gotten worse over time, and in which states the institutional issues are worse or better.
 
-[TODO ... other sections ... See Canvas for details]
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+plot_jail_pop_for_us()
+```
 
-_All the very best with your work!_
 
+_This bar chart depicts the growth of the total U.S. prison population from 1970 to 2018._
+
+This chart appears to reveal that the total jail population in the U.S. has increased over time from 1970 to 2018. The total jail population stays constant from around 1970 to 1980, then a nearly exponential increase from 1980 to 1990, and then a large but steady increase from 1990 to around 2008. From 2008 to 2018, it slightly drops from its peak in 2008.
+
+
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+plot_jail_pop_by_states(c("CA","OR","AL", "WA"))
+```
+
+
+_This line graph depicts the growth of the total U.S. prison population by state (for California, Oregon, Alabama, and Washington) from 1970 to 2018._
+
+This graph appears to reveal that the prison population in Oregon, Washington, and Alabama remain low, California’s growth rises rapidly, especially from 2000 to 2005. California’s population is also larger by an extreme amount in comparison to the other states. One reason as to why this may be the result is because of California’s large population in comparison to other states.
+
+
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+plot_black_state_jail_pop()
+```
+
+
+_This scatterplot depicts the comparison between the proportion of the White jail population per state, and the proportion of the black jail population per state._
+
+This scatterplot appears to reveal a negative linear correlation between the proportion of the white jail population per state and the proportion of the black jail population per state. Some states have a high proportion of white people in jail compared to black people in relation to their state population, and some states have a lower proportion of white people in jail compared to black people in in jail.
+
+
+
+```{r echo=FALSE, eval=TRUE, message=FALSE, warning=FALSE}
+plotMap
+```
+
+
+_This map depicts the proportion of Black jail population to state population for each state across the United States._
+
+This map appears to reveal that the proportion of incarcerated black people (relative to each states’ population) is largest in Georgia. The proportions are also larger in Texas, Mississippi, North Carolina, and Virginia, in comparison to other states such as Washington, Oregon, Idaho, and Arizona.
